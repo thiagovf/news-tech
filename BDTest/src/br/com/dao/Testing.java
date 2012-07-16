@@ -25,9 +25,9 @@ public class Testing {
 	private static void removing() throws SQLException {
 		OracleDataSource dataSource = new OracleDataSource();
 
-		dataSource.setURL("jdbc:oracle:thin:@10.218.20.68:9101:HYTMGMT");
-		dataSource.setUser("VCMMGMT");
-		dataSource.setPassword("VCMMGMT");
+		dataSource.setURL("jdbc:oracle:thin:@123.456.789.555:8888:instanceName");
+		dataSource.setUser("xyz");
+		dataSource.setPassword("xyz");
 		
 		Connection conn = dataSource.getConnection();
 		
