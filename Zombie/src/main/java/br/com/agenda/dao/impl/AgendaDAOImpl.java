@@ -5,11 +5,13 @@ import java.util.List;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import br.com.agenda.dao.IAgendaDAO;
 import br.com.agenda.model.Agenda;
 
 @Repository
+@Transactional(readOnly = false)
 public class AgendaDAOImpl implements IAgendaDAO {
 	@Autowired
 	private SessionFactory sessionFactory;
@@ -24,7 +26,7 @@ public class AgendaDAOImpl implements IAgendaDAO {
 	
 	@Override
 	public List<Agenda> getTodasAgendas() {
-		String Sql = "select distinct new Agenda(u.id)";
+		String Sql = "from Agenda";
 
 		@SuppressWarnings("unchecked")
 		List<Agenda> list = (List<Agenda>) this.sessionFactory
