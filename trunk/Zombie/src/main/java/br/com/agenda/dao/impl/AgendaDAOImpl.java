@@ -19,12 +19,10 @@ public class AgendaDAOImpl implements IAgendaDAO {
 	public AgendaDAOImpl() {
 	}
 	
-	@Override
 	public void salva(Agenda agenda) {
 		sessionFactory.getCurrentSession().saveOrUpdate(agenda);
 	}
 	
-	@Override
 	public List<Agenda> getTodasAgendas() {
 		String Sql = "from Agenda";
 
