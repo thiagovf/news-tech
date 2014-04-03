@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>K19 Treinamentos</h:head>
+<h:body>
+	<h:form>
+		<h:outputLabel value="Nome:" for="nome" />
+		<h:inputText value="#{faleConoscoBean.fale.nome}" id="nome" required="true"/>
+		<h:message for="nome" />
+		
+		<h:outputLabel value="Assunto" for="assunto" />
+		<h:selectOneMenu value="#{faleConoscoBean.fale.assunto}" id="assunto" required="true">
+			<f:selectItem
+			itemValue="" itemLabel="Selecione">
+			</f:selectItem>
+			<f:selectItems value="#{faleConoscoBean.assuntos}"
+				var="assunto" itemValue="#{assunto}" itemLabel="#{assunto}" />
+		</h:selectOneMenu>
+		<h:message for="assunto"/>
+		<h:commandButton value="Enviar" />
+	</h:form>
+	<h:panelGroup rendered="#{faleConoscoBean.fale.nome != null}">
+		O nome do usuário é <b> #{faleConoscoBean.fale.nome} </b>
+		e o assunto é <b> #{faleConoscoBean.fale.assunto} </b>.
+	</h:panelGroup>
+</h:body>
+</html>
